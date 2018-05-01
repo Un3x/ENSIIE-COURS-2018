@@ -1,27 +1,16 @@
 <?php
+$dbh = 'pgsql:user=ensiie;dbname=ensiie;password=test';
+$conn = new PDO($dbh);
+$sql = 'select todo.name as todoName, task.name as taskName from todo inner join task on todo.id = task.todo_id';
 
-$view = [
-    'Courses' => [
-        'patate',
-        'carotte',
-        'champignon',
-        'chips',
-        'café',
-    ],
-    'Etudes' => [
-        'primaire',
-        'collège',
-        'lycée',
-        'prépa',
-        'ENSIIE',
-    ],
-    'Php' => [
-        'Apprendre le php',
-        'Comprendre le php',
-        'Vivre le php',
-        'Danser le php',
-        'Manger le php',
-    ],
-];
+$dbResult = [];
+foreach  ($conn->query($sql) as [$todoName, $taskName]) {
+    if (!array_key_exists($todoName, $dbResult)) {
+        $dbResult[$todoName] = [];
+    }
+    $dbResult[$todoName][] = $taskName;
+}
+
+$view = $dbResult;
 
 require_once('../view/home.php');

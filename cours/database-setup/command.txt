@@ -1,0 +1,18 @@
+Creating user
+$ sudo -u postgres createuser <username>
+
+Creating Database
+$ sudo -u postgres createdb <dbname>
+
+Giving the user a password
+$ sudo -u postgres psql
+psql=# alter user <username> with encrypted password '<password>';
+
+Granting privileges on database
+psql=# grant all privileges on database <dbname> to <username> ;
+
+open /etc/postgresql/9.1/main/pg_hba.conf
+change
+local   all             postgres                                peer
+to
+local   all             postgres                                md5
