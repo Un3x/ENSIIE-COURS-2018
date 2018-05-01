@@ -106,12 +106,10 @@ ul {
     list-style-type: none;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
-    -webkit-padding-start: 40px;
 }
 
 li {
-    display: list-item;
-    text-align: -webkit-match-parent;
+    margin-top: 10px;
 }
 
 .board-list {
@@ -149,9 +147,5 @@ li {
     min-height: 64px;
     padding: 40px 8px 8px 8px;
     position: relative;
-}
-
-.board-tile-details {
     background-color: hsla(0,0%,100%,.3);
-
 }
