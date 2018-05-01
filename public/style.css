@@ -55,8 +55,6 @@ body {
 }
 
 .header-btn {
-    -webkit-transition: .1s ease;
-    transition: .1s ease;
     background: hsla(0,0%,100%,.3);
     border-radius: 3px;
     color: #f3f3f3;
@@ -66,11 +64,7 @@ body {
     line-height: 30px;
     margin-right: 8px;
     min-width: 30px;
-    padding: 0;
     text-decoration: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     padding: 0 12px;
 }
@@ -100,10 +94,11 @@ body {
 
 .section-header-name {
     display: inline-block;
-    line-height: 24px;
+    line-height: 36px;
     margin: 3px 0 0;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 700;
+    text-align: center;
 }
 
 ul {
@@ -111,8 +106,6 @@ ul {
     list-style-type: none;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
     -webkit-padding-start: 40px;
 }
 
@@ -122,15 +115,11 @@ li {
 }
 
 .board-list {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 .board-list-item {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 8px 8px 0;
     position: relative;
@@ -144,16 +133,21 @@ li {
     color: #fff;
     line-height: 20px;
     margin: 0 8px 8px 0;
-    padding: 8px;
+    padding-top: 8px;
     position: relative;
     text-decoration: none;
     width: 90%;
 }
 
+.board-tile-title {
+    margin: 0 8px;
+    text-align: center;
+}
+
 .board-tile-details {
     display: block;
     min-height: 64px;
-    padding-right: 40px;
+    padding: 40px 8px 8px 8px;
     position: relative;
 }
 
