@@ -1,16 +1,24 @@
 <?php
-$dbh = 'pgsql:user=ensiie;dbname=ensiie;password=test';
-$conn = new PDO($dbh);
-$sql = 'select todo.name as todoName, task.name as taskName from todo inner join task on todo.id = task.todo_id';
+include '../module/Application/src/Adapter/DatabaseFactory.php';
+include '../module/Todo/src/Repository/Todo.php';
+include '../module/Todo/src/Repository/Task.php';
+include '../module/Todo/src/Hydrator/Todo.php';
+include '../module/Todo/src/Hydrator/Task.php';
+include '../module/Todo/src/Entity/Todo.php';
+include '../module/Todo/src/Entity/Task.php';
 
-$dbResult = [];
-foreach  ($conn->query($sql) as [$todoName, $taskName]) {
-    if (!array_key_exists($todoName, $dbResult)) {
-        $dbResult[$todoName] = [];
-    }
-    $dbResult[$todoName][] = $taskName;
+$dbAdapter = new \Application\Adapter\DatabaseFactory();
+
+$todoRepository = new \Todo\Repository\Todo();
+$taskRepository = new \Todo\Repository\Task();
+
+$todos = $todoRepository->findAll();
+foreach ($todos as $todo) {
+    $todo->setTasks($taskRepository->findAllByTodo($todo));
 }
 
-$view = $dbResult;
+$view = [
+    'todos' => $todos
+];
 
 require_once('../view/home.php');

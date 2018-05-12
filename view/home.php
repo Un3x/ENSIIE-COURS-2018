@@ -33,17 +33,21 @@
     </div>
     <div class="section-container">
         <ul class="board-list">
-            <?php foreach ($view as $todoTitle => $todoTask): ?>
+
+            <?php
+            /** @var \Todo\Entity\Todo $todo */
+            foreach ($view['todos'] as $todo):
+            ?>
                 <li class="board-list-item">
                     <div class="board-tile">
                         <div class="board-tile-title">
-                            <h4><?php echo $todoTitle ?></h4>
+                            <h4><?php echo $todo->getName() ?></h4>
                         </div>
                         <div class="board-tile-details">
                             <ul>
-                                <?php foreach ($todoTask as $task): ?>
+                                <?php foreach ($todo->getTasks() as $task): ?>
                                     <li>
-                                        <?php echo $task ?>
+                                        <?php echo $task->getName() ?>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
