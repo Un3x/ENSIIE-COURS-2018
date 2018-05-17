@@ -2,6 +2,26 @@ body {
     margin: 0;
 }
 
+.icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+
+}
+
+.icon-remove {
+    background-image: url("./assets/icons/glyphicons-208-remove.png");
+    float: right;
+    width: 18px;
+    height:18px;
+}
+
+.icon-ok {
+    background-image: url("./assets/icons/glyphicons-207-ok.png");
+    float: right;
+    width: 25px;
+    height:18px;
+}
+
 .white {
     color: #FFF;
 }
