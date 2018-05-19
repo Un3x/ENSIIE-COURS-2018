@@ -40,6 +40,11 @@ class Task
     private $updatedAt;
 
     /**
+     * @var null|\DateTime
+     */
+    private $doneAt;
+
+    /**
      * @return int
      */
     public function getId(): ?int
@@ -49,7 +54,7 @@ class Task
 
     /**
      * @param int $id
-     * @return Todo
+     * @return Task
      */
     public function setId(int $id): Task
     {
@@ -105,7 +110,7 @@ class Task
      * @param \DateTime $createdAt
      * @return Task
      */
-    public function setCreatedAt(\DateTime $createdAt): Task
+    public function setCreatedAt(?\DateTime $createdAt): Task
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -123,9 +128,27 @@ class Task
      * @param \DateTime $updatedAt
      * @return Task
      */
-    public function setUpdatedAt(\DateTime $updatedAt): Task
+    public function setUpdatedAt(?\DateTime $updatedAt): Task
     {
         $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDoneAt(): ?\DateTime
+    {
+        return $this->doneAt;
+    }
+
+    /**
+     * @param \DateTime $doneAt
+     * @return Task
+     */
+    public function setDoneAt(?\DateTime $doneAt): Task
+    {
+        $this->doneAt = $doneAt;
         return $this;
     }
 }

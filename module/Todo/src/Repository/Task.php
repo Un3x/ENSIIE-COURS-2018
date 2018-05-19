@@ -61,4 +61,31 @@ class Task
         }
         return $tasks;
     }
+
+    /**
+     * @param int $id
+     * @return \null|\Todo\Entity\Task
+     */
+    public function findOne(int $id): ?\Todo\Entity\Task
+    {
+        $statement = $this->dbAdapter->prepare('select * from task where id = :id');
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        if ($taskArray = $statement->fetch()) {
+            return $this->hydrator->hydrate($taskArray, new \Todo\Entity\Task());
+        }
+        return null;
+    }
+
+    /**
+     * @param \Todo\Entity\Task $task
+     */
+    public function update(\Todo\Entity\Task $task)
+    {
+        $taskArray = $this->hydrator->extract($task);
+        $statement = $this->dbAdapter->prepare('update task set done_at = :doneAt where id = :id');
+        $statement->bindParam(':id', $taskArray['id']);
+        $statement->bindParam(':doneAt', $taskArray['done_at']);
+        $statement->execute();
+    }
 }

@@ -35,11 +35,15 @@ class Task
         }
 
         if ($object->getCreatedAt()) {
-            $data['created_at'] = $object->getCreatedAt();
+            $data['created_at'] = $object->getCreatedAt()->format(\DateTime::ATOM);
         }
 
         if ($object->getUpdatedAt()) {
-            $data['updated_at'] = $object->getUpdatedAt();
+            $data['updated_at'] = $object->getUpdatedAt()->format(\DateTime::ATOM);
+        }
+
+        if ($object->getDoneAt()) {
+            $data['done_at'] = $object->getDoneAt()->format(\DateTime::ATOM);
         }
 
         return $data;
@@ -57,6 +61,7 @@ class Task
             ->setTodoId($data['todo_id'] ?? null)
             ->setName($data['name'] ?? null)
             ->setCreatedAt($data['created_at'] ? new \DateTime($data['created_at']) : null)
-            ->setUpdatedAt($data['updated_at'] ? new \DateTime($data['updated_at']) : null);
+            ->setUpdatedAt($data['updated_at'] ? new \DateTime($data['updated_at']) : null)
+            ->setDoneAt($data['done_at'] ? new \DateTime($data['done_at']) : null);
     }
 }

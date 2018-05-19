@@ -51,7 +51,7 @@
                                 <?php foreach ($todo->getTasks() as $task): ?>
                                     <li>
                                         <?php echo $task->getName() ?>
-                                        <span class="icon icon-ok"></span>
+                                        <span id="<?php echo $task->getId() ?>" class="icon <?php echo $task->getDoneAt() ? 'icon-ok': 'icon-remove' ?>"></span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -68,9 +68,21 @@
         $(".icon").click(function() {
             const selectedButton = $(this);
             if (selectedButton.hasClass("icon-ok")) {
-                console.log('it was ok');
+                $.post(
+                    'task-status.php',
+                    {
+                        'id': selectedButton.attr('id'),
+                        'action': 'unvalidate'
+                    }
+                );
             } else {
-                console.log('it was removed')
+                $.post(
+                    'task-status.php',
+                    {
+                        'id': selectedButton.attr('id'),
+                        'action': 'validate'
+                    }
+                );
             }
             selectedButton.toggleClass("icon-ok");
             selectedButton.toggleClass("icon-remove");
