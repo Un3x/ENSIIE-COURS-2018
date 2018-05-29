@@ -71,6 +71,20 @@ class Todo
         return $this;
     }
 
+    public function isDone()
+    {
+        if ($this->tasks) {
+            /** @var \Todo\Entity\Task $task */
+            foreach ($this->tasks as $task) {
+                if (!$task->getDoneAt()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @return string
      */

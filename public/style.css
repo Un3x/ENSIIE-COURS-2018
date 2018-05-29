@@ -147,7 +147,6 @@ li {
 
 .board-tile {
     background-size: cover;
-    background: #026AA7 50%;
     color: #fff;
     line-height: 20px;
     margin: 0 8px 8px 0;
@@ -155,6 +154,14 @@ li {
     position: relative;
     text-decoration: none;
     width: 90%;
+}
+
+.board-tile--blue {
+    background: #026AA7 50%;
+}
+
+.board-tile--green {
+    background: #2AC644 50%;
 }
 
 .board-tile-title {
