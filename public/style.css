@@ -15,6 +15,14 @@ body {
     height:18px;
 }
 
+.icon-delete {
+    background: url("./assets/icons/glyphicons-257-delete.png") no-repeat;
+    width: 26px;
+    height:16px;
+    float: left;
+    padding: 3px;
+}
+
 .icon-ok {
     background-image: url("./assets/icons/glyphicons-207-ok.png");
     float: right;
@@ -175,4 +183,31 @@ li {
     padding: 40px 8px 8px 8px;
     position: relative;
     background-color: hsla(0,0%,100%,.3);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.item-input {
+    flex-grow: 2;
+    width: 70%;
+}
+
+.item-submit {
+    flex-grow: 1;
+}
+
+.submit-button {
+    background: none;
+    border: none;
+}
+
+.active-todo-container {
+    margin: 0;
+    padding: 0;
 }

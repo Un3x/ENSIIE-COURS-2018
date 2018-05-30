@@ -47,13 +47,32 @@
                                 <h4><?php echo $todo->getName() ?></h4>
                             </div>
                             <div class="board-tile-details">
-                                <ul>
+                                <ul class="active-todo-container">
                                     <?php foreach ($todo->getTasks() as $task): ?>
-                                        <li>
-                                            <?php echo $task->getName() ?>
-                                            <span id="<?php echo $task->getId() ?>" class="icon <?php echo $task->getDoneAt() ? 'icon-ok': 'icon-remove' ?>"></span>
+                                        <li class="form-container">
+                                            <form action="delete-task.php" method="post">
+                                                <input type="hidden" name="id" value="<?php echo $task->getId() ?>">
+                                                <button class="submit-button" type="submit"><span class="icon-delete"></span></button>
+                                            </form>
+                                            <div>
+                                                <?php echo $task->getName() ?>
+                                            </div>
+                                            <div>
+                                                <span id="<?php echo $task->getId() ?>" class="icon <?php echo $task->getDoneAt() ? 'icon-ok': 'icon-remove' ?>"></span>
+                                            </div>
                                         </li>
                                     <?php endforeach; ?>
+                                    <li>
+                                        <div>
+                                            <form action="add-task.php" method="post">
+                                                <input type="hidden" name="todoId" value="<?php echo $todo->getId() ?>">
+                                                <div class="form-container">
+                                                    <input class="item-input" type="text" name="taskName" placeholder="new task">
+                                                    <input class="item-submit" type="submit" value="Ok">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

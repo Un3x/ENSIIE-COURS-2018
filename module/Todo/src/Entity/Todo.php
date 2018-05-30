@@ -51,7 +51,7 @@ class Todo
      * @param int $id
      * @return Todo
      */
-    public function setId(int $id): Todo
+    public function setId(?int $id): Todo
     {
         $this->id = $id;
         return $this;
@@ -115,7 +115,7 @@ class Todo
      * @param \DateTime $createdAt
      * @return Todo
      */
-    public function setCreatedAt(\DateTime $createdAt): Todo
+    public function setCreatedAt(?\DateTime $createdAt): Todo
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -133,7 +133,7 @@ class Todo
      * @param \DateTime $updatedAt
      * @return Todo
      */
-    public function setUpdatedAt(\DateTime $updatedAt): Todo
+    public function setUpdatedAt(?\DateTime $updatedAt): Todo
     {
         $this->updatedAt = $updatedAt;
         return $this;

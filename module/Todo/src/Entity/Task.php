@@ -56,7 +56,7 @@ class Task
      * @param int $id
      * @return Task
      */
-    public function setId(int $id): Task
+    public function setId(? int $id): Task
     {
         $this->id = $id;
         return $this;

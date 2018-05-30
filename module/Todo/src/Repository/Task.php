@@ -88,4 +88,22 @@ class Task
         $statement->bindParam(':doneAt', $taskArray['done_at']);
         $statement->execute();
     }
+
+    public function create (\Todo\Entity\Task $task)
+    {
+        $taskArray = $this->hydrator->extract($task);
+        $statement = $this->dbAdapter->prepare('INSERT INTO task (todo_id, name) values (:todo_id, :name)');
+        $statement->bindParam(':todo_id', $taskArray['todo_id']);
+        $statement->bindParam(':name', $taskArray['name']);
+        $statement->execute();
+
+
+    }
+
+    public function delete($taskId)
+    {
+        $statement = $this->dbAdapter->prepare('DELETE FROM task where id = :id');
+        $statement->bindParam(':id', $taskId);
+        $statement->execute();
+    }
 }
