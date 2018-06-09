@@ -10,6 +10,8 @@ include '../module/Todo/src/Entity/Todo.php';
 include '../module/Todo/src/Entity/Task.php';
 include '../module/User/src/Entity/User.php';
 
+session_start();
+
 $userRepository = new \User\Repository\User();
 $userHydrator = new \User\Hydrator\User();
 

@@ -7,6 +7,8 @@ include '../module/Todo/src/Hydrator/Task.php';
 include '../module/Todo/src/Entity/Todo.php';
 include '../module/Todo/src/Entity/Task.php';
 
+session_start();
+
 $taskRepository = new \Todo\Repository\Task();
 $taskHydrator = new \Todo\Hydrator\Task();
 
