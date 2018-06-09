@@ -12,24 +12,7 @@
 </head>
 
 <body class="background-neutral">
-<div class="header white">
-    <div class="header-container-left">
-        <a class="header-link">
-            Accueil
-        </a>
-        <a class="header-link">
-            A propos
-        </a>
-    </div>
-    <div class="header-container-right">
-        <a class="header-btn header-signup">
-            Inscription
-        </a>
-        <a class="header-btn">
-            Se connecter
-        </a>
-    </div>
-</div>
+<?php require_once(__DIR__ . '/partials/header.php'); ?>
 <div class="section">
     <div class="section-header">
         <h3 class="section-header-name">Todo Lists</h3>

@@ -38,3 +38,11 @@ INSERT INTO task (todo_id, name) VALUES (3, 'Danser le php');
 INSERT INTO task (todo_id, name) VALUES (3, 'Manger le php');
 
 alter table task add column done_at timestamp default null;
+
+CREATE TABLE "user" (
+  id SERIAL PRIMARY KEY,
+  nickname VARCHAR(50),
+  password VARCHAR(255),
+  created_at TIMESTAMP default CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP default CURRENT_TIMESTAMP
+);

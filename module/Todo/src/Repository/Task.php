@@ -96,8 +96,6 @@ class Task
         $statement->bindParam(':todo_id', $taskArray['todo_id']);
         $statement->bindParam(':name', $taskArray['name']);
         $statement->execute();
-
-
     }
 
     public function delete($taskId)
